@@ -214,6 +214,8 @@ lmIndicatorCode <- nimbleCode({
     w[v] ~ dbern(omega)  #--Indicator variable for each coefficient
   }#v
   omega ~ dbeta(2,8)     #--Prior on inclusion probability
+  # This can be considered an informative prior; dbeta(2,8) puts an average prior probability of 0.2 on retaining each covariate (with SD = 0.12)
+  # alternatively, consider dunif(0,1), a non-informative prior, which assigns an average prior probability of 0.5 (with higher SD = 0.29)
   
   
   ## Zone 1 is an "implied" intercept
